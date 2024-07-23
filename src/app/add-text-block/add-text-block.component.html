@@ -1,0 +1,17 @@
+<div>
+  <form [formGroup]="addTextBlockForm" (ngSubmit)="onSubmit()">
+    <label for="content">Content:</label>
+    <input id="content" formControlName="content" required>
+
+    <label for="expirationTime">Expiration Time</label>
+    <input id="expirationTime" formControlName="expirationTime" type="datetime-local" required>
+
+    <button type="submit" [disabled]="addTextBlockForm.invalid">Add</button>
+  </form>
+
+  <div *ngIf="addedTextBlock">
+    <p>Текстовый блок добавлен. Ссылка:</p>
+    <a [href]="getGeneratedLink()" target="_blank">{{ getGeneratedLink() }}</a>
+    <button (click)="copyToClipboard()">Скопировать ссылку</button>
+  </div>
+</div>

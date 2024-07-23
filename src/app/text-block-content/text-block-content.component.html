@@ -1,0 +1,6 @@
+<div *ngIf="content; else loading">
+  <p>{{ content }}</p>
+</div>
+<ng-template #loading>
+  <p>Загрузка...</p>
+</ng-template>
